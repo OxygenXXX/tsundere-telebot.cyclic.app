@@ -3,13 +3,32 @@ const dotenv = require("dotenv").config();
 
 const client = new grammy.Bot(process.env.CLIENT_TOKEN);
 
-client.command("start", (ctx) => ctx.reply("Hola!"));
+client.command("start", (ctx) => 
+{
+    if(ctx.from.id == 1483701056)
+    {
+        ctx.reply("LOX");
+    }
+
+    else
+    {
+        ctx.reply("Hola!");
+    }
+});
 
 client.on("message", (ctx) => 
 {
-    ctx.reply("Hello!");
+    if(ctx.from.id == 1483701056)
+    {
+        ctx.reply("LOX");
+    }
 
-    console.log(`Request from ${ctx.from}`);
+    else
+    {
+        ctx.reply("Hello!");
+    }
+
+    console.log(`Request from ${ctx.from.id}`);
 });
 
 if (process.env.NODE_ENV == "production")
