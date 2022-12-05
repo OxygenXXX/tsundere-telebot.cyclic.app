@@ -5,7 +5,12 @@ const client = new grammy.Bot(process.env.CLIENT_TOKEN);
 
 client.command("start", (ctx) => ctx.reply("Hola!"));
 
-client.on("message", (ctx) => ctx.reply("Hello!"));
+client.on("message", (ctx) => 
+{
+    ctx.reply("Hello!");
+
+    console.log("Request");
+});
 
 if (process.env.NODE_ENV == "production")
 {
