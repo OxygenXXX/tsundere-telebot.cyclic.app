@@ -9,7 +9,7 @@ client.on("message", (ctx) =>
 {
     ctx.reply("Hello!");
 
-    console.log("Request");
+    console.log(`Request from ${ctx.from}`);
 });
 
 if (process.env.NODE_ENV == "production")
